@@ -1,0 +1,88 @@
+import RPi.GPIO as GPIO
+import time
+from evdev import UInput, ecodes as e
+
+# Setup GPIO
+GPIO.setmode(GPIO.BCM)
+
+BUTTONS = {
+    "UP": 17,
+    "DOWN": 27,
+    "LEFT": 22,
+    "RIGHT": 23,
+    "A": 5,
+    "B": 6,
+    "X": 13,
+    "Y": 19,
+    "START": 26,
+    "SELECT": 21,
+    "L1": 20,
+    "R1": 16,
+    "L2": 12,
+    "R2": 7
+}
+
+for pin in BUTTONS.values():
+    GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+# Map to gamepad buttons
+GAMEPAD_MAP = {
+    "A": e.BTN_SOUTH,
+    "B": e.BTN_EAST,
+    "X": e.BTN_NORTH,
+    "Y": e.BTN_WEST,
+    "L1": e.BTN_TL,
+    "R1": e.BTN_TR,
+    "L2": e.BTN_TL2,
+    "R2": e.BTN_TR2,
+    "START": e.BTN_START,
+    "SELECT": e.BTN_SELECT
+}
+
+# Setup uinput device
+capabilities = {
+    e.EV_KEY: list(GAMEPAD_MAP.values()),
+    e.EV_ABS: [
+        (e.ABS_X, (-1, 1, 0, 0)),
+        (e.ABS_Y, (-1, 1, 0, 0)),
+    ]
+}
+
+ui = UInput(capabilities, name="PiHandheld")
+
+def read_dpad():
+    x = 0
+    y = 0
+
+    if not GPIO.input(BUTTONS["LEFT"]):
+        x = -1
+    elif not GPIO.input(BUTTONS["RIGHT"]):
+        x = 1
+
+    if not GPIO.input(BUTTONS["UP"]):
+        y = -1
+    elif not GPIO.input(BUTTONS["DOWN"]):
+        y = 1
+
+    return x, y
+
+try:
+    while True:
+        # D-pad
+        x, y = read_dpad()
+        ui.write(e.EV_ABS, e.ABS_X, x)
+        ui.write(e.EV_ABS, e.ABS_Y, y)
+
+        # Buttons
+        for name, code in GAMEPAD_MAP.items():
+            pressed = not GPIO.input(BUTTONS[name])
+            ui.write(e.EV_KEY, code, int(pressed))
+
+        ui.syn()
+        time.sleep(0.01)
+
+except KeyboardInterrupt:
+    pass
+
+finally:
+    GPIO.cleanup()
