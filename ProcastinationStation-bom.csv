@@ -1,0 +1,7 @@
+Name,Purpose,Quantity,Total Cost (USD),Link,Distributor
+"3d print ","case ",1,5.00,"","Printing Legion "
+"PCB ","make circuit ",5,10.00,"","lion, robu "
+"2x20 female header ","hold za pi ",1,1.00,"https://robu.in/product/2-54mm-2x20-pin-female-double-row-straight-long-header-strip?gad_campaignid=17427802703&gclid=CjwKCAjw-8vPBhBbEiwAoA39WnldG48sh-OZLDDKlM3D9kUEMOgs06Uqe9aVJIUXjSP87jSFjBj00RoChkYQAvD_BwE&gad_source=1","robu "
+"Screen ","to display the emulator ",1,6.00,"https://robu.in/product/2-8-inch-spi-screen-module-tft-interface-240-x-320-without-touch","Robu"
+"RPI 0 2w ","Computer , runs the emulator",1,22.00,"https://robu.in/product/raspberry-pi-zero-2-w-with-header","Robu "
+"Buttons ","click click ",50,1.50,"https://www.flipkart.com/technical-hut-50-x-pushbutton-switch-4-pin-tactile-micro-switches-5mm-projects-electronic-components-hobby-kit/p/itmfbvat3q3vbxqf","Flipkart"
