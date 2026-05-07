@@ -3383,7 +3383,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4776b355-feeb-4343-a44f-5af148f37377")
-		(property "Reference" "TP3"
+		(property "Reference" "SCK1"
 			(at 69.85 93.4719 0)
 			(effects
 				(font
@@ -3434,7 +3434,7 @@
 		(instances
 			(project "ProcastinationStation"
 				(path "/8f9de815-95d5-43c9-a091-d021baccd8d5"
-					(reference "TP3")
+					(reference "SCK1")
 					(unit 1)
 				)
 			)
@@ -4219,7 +4219,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9426383d-4ef9-4b20-ae54-f4a3471510c3")
-		(property "Reference" "TP1"
+		(property "Reference" "CS1"
 			(at 69.85 76.7079 0)
 			(effects
 				(font
@@ -4270,7 +4270,7 @@
 		(instances
 			(project ""
 				(path "/8f9de815-95d5-43c9-a091-d021baccd8d5"
-					(reference "TP1")
+					(reference "CS1")
 					(unit 1)
 				)
 			)
@@ -4862,7 +4862,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fa9fbeda-3ed0-40a1-9b73-8c9260e328a0")
-		(property "Reference" "TP2"
+		(property "Reference" "MOSI1"
 			(at 69.85 84.3279 0)
 			(effects
 				(font
@@ -4913,7 +4913,7 @@
 		(instances
 			(project ""
 				(path "/8f9de815-95d5-43c9-a091-d021baccd8d5"
-					(reference "TP2")
+					(reference "MOSI1")
 					(unit 1)
 				)
 			)
